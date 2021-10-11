@@ -1,9 +1,9 @@
 {
     "name": "广汽三菱",
     "author": "elecV2p",
-    "mitmhost": ["api.st615.com"],
+    "mitmhost": ["mspace.gmmc.com.cn"],
     "rewrite": [{
-            "match": "https://api.st615.com/v1/user/info?",
+            "match": "https://mspace.gmmc.com.cn/customer-app/task-mapi",
             "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/gqsl/gqsl.js",
             "enable": true
         }
