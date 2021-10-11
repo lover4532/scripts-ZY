@@ -1,0 +1,48 @@
+{
+    "name": "好多羊毛要薅",
+    "author": "elecV2p",
+    "mitmhost": ["mspace.gmmc.com.cn", "api.st615.com","api.xqustar.com","user.youth.cn"],
+    "rewrite": [{
+            "match": "https://mspace.gmmc.com.cn/customer-app/task-mapi",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/gqsl/gqsl.js",
+            "enable": true
+        }, {
+            "match": "https://api.st615.com/v1/user/info?",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/jzread/jzread.js",
+            "enable": true
+        }, {
+            "match": "https://api.xqustar.com/api/task/v2/list",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/qxq/qxq.js",
+            "enable": true
+        }, {
+            "match": "https://user.youth.cn/v1/user/userinfo.json",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_ck.js",
+            "enable": true
+        },
+        {
+            "match": "https://user.youth.cn/FastApi/CommonReward/toGetReward.json",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_box.js",
+            "enable": true
+        },
+        {
+            "match": "https://user.youth.cn/FastApi/Task/sign.json",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_qd.js",
+            "enable": true
+        },
+        {
+            "match": "https://user.youth.cn/v1/article/detail.json",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_read.js",
+            "enable": true
+        },
+        {
+            "match": "（删掉这并启用）https://user.youth.cn/FastApi/CommonReward/toGetReward.json",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_timebox.js",
+            "enable": false
+        },
+        {
+            "match": "https://user.youth.cn/v1/Withdraw/wechat.json",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_tx.js",
+            "enable": true
+        }
+    ]
+}

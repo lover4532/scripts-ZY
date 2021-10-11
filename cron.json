@@ -1,0 +1,85 @@
+{
+  "name": "好多羊毛要薅",
+  "author": "zack",
+  "note": "xx 导出的任务订阅。该订阅适用于 elecV2P，与其他软件并不兼容。相关说明参考：https://github.com/elecV2/elecV2P-dei/tree/master/docs/06-task.md",
+  "date": "2021-10-07 20:25:08",
+  "list": [{
+      "name": "广汽三菱",
+      "type": "cron",
+      "time": "0 6 * * *",
+      "job": {
+        "type": "runjs",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/gqsl/gqsl.js"
+      }
+    }, {
+      "name": "九章头条",
+      "type": "cron",
+      "time": "*/60 * * * *",
+      "job": {
+        "type": "runjs",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/jzread/jzread.js"
+      }
+    }, {
+      "name": "趣星球",
+      "type": "cron",
+      "time": "0 8-18/2 * * *",
+      "job": {
+        "type": "runjs",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/qxq/qxq.js"
+      }
+    }, {
+      "name": "中青极速版文章",
+      "type": "cron",
+      "time": "18 9 * * *",
+      "job": {
+        "type": "runjs",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zqspeed/zq_speed_read.js"
+      }
+    },
+    {
+      "name": "中青极速版定时宝箱",
+      "type": "cron",
+      "time": "*/30 * * * *",
+      "job": {
+        "type": "runjs",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zqspeed/zq_speed_timebox.js"
+      }
+    },
+    {
+      "name": "中青极速版宝箱",
+      "type": "cron",
+      "time": "10 22 * * *",
+      "job": {
+        "type": "runjs",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zqspeed/zq_speed_box.js"
+      }
+    },
+    {
+      "name": "中青极速版签到",
+      "type": "cron",
+      "time": "0 8 * * *",
+      "job": {
+        "type": "runjs",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zqspeed/zq_speed_qd.js"
+      }
+    },
+    {
+      "name": "中青极速版转发",
+      "type": "cron",
+      "time": "30 8,14,19 * * *",
+      "job": {
+        "type": "runjs",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zqspeed/zq_speed_shared.js"
+      }
+    },
+    {
+      "name": "中青极速版提现",
+      "type": "cron",
+      "time": "30 22 * * *",
+      "job": {
+        "type": "runjs",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zqspeed/zq_speed_tx.js"
+      }
+    }
+  ]
+}
