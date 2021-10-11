@@ -48,7 +48,7 @@
     {
       "name": "中青极速版宝箱",
       "type": "cron",
-      "time": "10 22 * * *",
+      "time": "0 21 * * *",
       "job": {
         "type": "runjs",
         "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zqspeed/zq_speed_box.js"
