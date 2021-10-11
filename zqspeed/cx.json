@@ -1,0 +1,36 @@
+{
+    "name": "中青极速版重写订阅",
+    "author": "elecV2p",
+    "mitmhost": ["user.youth.cn"],
+    "rewrite": [{
+            "match": "https://user.youth.cn/v1/user/userinfo.json",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_ck.js",
+            "enable": true
+        },
+        {
+            "match": "https://user.youth.cn/FastApi/CommonReward/toGetReward.json",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_box.js",
+            "enable": true
+        },
+        {
+            "match": "https://user.youth.cn/FastApi/Task/sign.json",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_qd.js",
+            "enable": true
+        },
+        {
+            "match": "https://user.youth.cn/v1/article/detail.json",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_read.js",
+            "enable": true
+        },
+        {
+            "match": "（删掉这并启用）https://user.youth.cn/FastApi/CommonReward/toGetReward.json",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_timebox.js",
+            "enable": false
+        },
+        {
+            "match": "https://user.youth.cn/v1/Withdraw/wechat.json",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_tx.js",
+            "enable": true
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "zq_speed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "zq_speed_box.js",
+  "scripts": {
+    "start": "node --inspect zq_speed_qd.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "got": "^11.8.2",
+    "tough-cookie": "^4.0.0"
+  }
+}
