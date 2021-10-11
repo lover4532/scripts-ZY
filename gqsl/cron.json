@@ -1,0 +1,17 @@
+{
+    "name": "广汽三菱",
+    "author": "zack",
+    "note": "xx 导出的任务订阅。该订阅适用于 elecV2P，与其他软件并不兼容。相关说明参考：https://github.com/elecV2/elecV2P-dei/tree/master/docs/06-task.md",
+    "date": "2021-10-07 20:25:08",
+    "list": [
+      {
+        "name": "广汽三菱",
+        "type": "cron",
+        "time": "0 6 * * *",
+        "job": {
+          "type": "runjs",
+          "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/gqsl/gqsl.js"
+        }
+      }
+    ]
+  }

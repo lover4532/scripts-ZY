@@ -1,0 +1,11 @@
+{
+    "name": "广汽三菱",
+    "author": "elecV2p",
+    "mitmhost": ["api.st615.com"],
+    "rewrite": [{
+            "match": "https://api.st615.com/v1/user/info?",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/gqsl/gqsl.js",
+            "enable": true
+        }
+    ]
+}
