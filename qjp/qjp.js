@@ -47,9 +47,9 @@ let status;
 
 status = (status = ($.getval("qjpstatus") || "1")) > 1 ? `${status}` : "";
 let qjpurlArr = [], qjphdArr = [], qjpbodyArr = [], qjpcount = ''
-let qjpurl = $.getdata('qjpurl') ? $.getdata('qjpurl') : ""
+let qjpurl = $.isNode() ? (process.env.qjpurl ? process.env.qjpurl : "") : ($.getdata('qjpurl') ? $.getdata('qjpurl') : "")
 let qjphd = $.isNode() ? (process.env.qjphd ? process.env.qjphd : "") : ($.getdata('qjphd') ? $.getdata('qjphd') : "")
-let qjpbody = $.getdata('qjpbody') ? $.getdata('qjpbody') : ""
+let qjpbody = $.isNode() ? (process.env.qjpbody ? process.env.qjpbody : "") : ($.getdata('qjpbody') ? $.getdata('qjpbody') : "")
 let b = Math.round(new Date().getTime() / 1000).toString();
 let ticket = ''
 let DD = RT(28000, 35000)
@@ -61,10 +61,59 @@ let m = 80
 let z = -1
 let token = ''
 $.message = ''
-let qjphds = ""
 
+if (!$.isNode()) {
+    qjpurlArr.push($.getdata('qjpurl'))
+    qjphdArr.push($.getdata('qjphd'))
+    qjpbodyArr.push($.getdata('qjpbody'))
 
+    let qjpcount = ($.getval('qjpcount') || '1');
+    for (let i = 2; i <= qjpcount; i++) {
+        qjpurlArr.push($.getdata(`qjpurl${i}`))
+        qjphdArr.push($.getdata(`qjphd${i}`))
+        qjpbodyArr.push($.getdata(`qjpbody${i}`))
+    }
+}
+else {
+    qjphds = ""
+    if (process.env.qjphd && process.env.qjphd.indexOf('@') > -1) {
+        qjphdArr = process.env.qjphd.split('@');
+        console.log(`您选择的是用"@"隔开\n`)
+    } else {
+        qjphds = [process.env.qjphd]
+    };
+    Object.keys(qjphds).forEach((item) => {
+        if (qjphds[item]) {
+            qjphdArr.push(qjphds[item])
+        }
+    })
 
+    qjpurls = ""
+    if (process.env.qjpurl && process.env.qjpurl.indexOf('@') > -1) {
+        qjpurlArr = process.env.qjpurl.split('@');
+        console.log(`您选择的是用"@"隔开\n`)
+    } else {
+        qjpurls = [process.env.qjpurl]
+    };
+    Object.keys(qjpurls).forEach((item) => {
+        if (qjpurls[item]) {
+            qjpurlArr.push(qjpurls[item])
+        }
+    })
+
+    qjpbodys = ""
+    if (process.env.qjpbody && process.env.qjpbody.indexOf('@') > -1) {
+        qjpbodyArr = process.env.qjpbody.split('@');
+        console.log(`您选择的是用"@"隔开\n`)
+    } else {
+        qjpbodys = [process.env.qjpbody]
+    };
+    Object.keys(qjpbodys).forEach((item) => {
+        if (qjpbodys[item]) {
+            qjpbodyArr.push(qjpbodys[item])
+        }
+    })
+}
 
 
 !(async () => {
@@ -72,16 +121,16 @@ let qjphds = ""
         await qjpck()
     } else {
         if (!$.isNode()) {
-            qjpurlArr.push($.getdata('qjpurl'))
-            qjphdArr.push($.getdata('qjphd'))
-            qjpbodyArr.push($.getdata('qjpbody'))
+            // qjpurlArr.push($.getdata('qjpurl'))
+            // qjphdArr.push($.getdata('qjphd'))
+            // qjpbodyArr.push($.getdata('qjpbody'))
 
-            let qjpcount = ($.getval('qjpcount') || '1');
-            for (let i = 2; i <= qjpcount; i++) {
-                qjpurlArr.push($.getdata(`qjpurl${i}`))
-                qjphdArr.push($.getdata(`qjphd${i}`))
-                qjpbodyArr.push($.getdata(`qjpbody${i}`))
-            }
+            // let qjpcount = ($.getval('qjpcount') || '1');
+            // for (let i = 2; i <= qjpcount; i++) {
+            //     qjpurlArr.push($.getdata(`qjpurl${i}`))
+            //     qjphdArr.push($.getdata(`qjphd${i}`))
+            //     qjpbodyArr.push($.getdata(`qjpbody${i}`))
+            // }
             console.log(
                 `\n\n=============================================== 脚本执行 - 北京时间(UTC+8)：${new Date(
                     new Date().getTime() +
@@ -165,18 +214,18 @@ let qjphds = ""
                 }
             }
         } else {
-            if (process.env.qjphd && process.env.qjphd.indexOf('@') > -1) {
-                qjphdArr = process.env.qjphd.split('@');
-                console.log(`您选择的是用"@"隔开\n`)
-            } else {
-                qjphds = [process.env.qjphd]
-            };
-            Object.keys(qjphds).forEach((item) => {
-                if (qjphds[item]) {
-                    qjphdArr.push(qjphds[item])
-                }
-            })
-            console.log(`共${qjphdArr.length}个cookie`)
+            // if (process.env.qjphd && process.env.qjphd.indexOf('@') > -1) {
+            //     qjphdArr = process.env.qjphd.split('@');
+            //     console.log(`您选择的是用"@"隔开\n`)
+            // } else {
+            //     qjphds = [process.env.qjphd]
+            // };
+            // Object.keys(qjphds).forEach((item) => {
+            //     if (qjphds[item]) {
+            //         qjphdArr.push(qjphds[item])
+            //     }
+            // })
+            // console.log(`共${qjphdArr.length}个cookie`)
             for (let k = 0; k < qjphdArr.length; k++) {
                 $.message = ""
                 qjphd = qjphdArr[k]
@@ -260,19 +309,14 @@ let qjphds = ""
 
 function qjpck() {
     if ($request.url.indexOf("collectPigMoney") > -1) {
-        const newqjpurl = $request.url
-        if (qjpurl.indexOf(newqjpurl) == -1) {
-            if (qjpurl == '')
-                qjpurl = newqjpurl
-            else
-                qjpurl = qjpurl + "@" + newqjpurl
-            $.setdata(qjpurl, `qjpurl${status}`)
-            $.log(newqjpurl)
-        }
+        var countIndex = 0
         const newqjphd = JSON.stringify($request.headers)
         if (newqjphd) {
             var token = $request.headers["Auth-Token"];
-            if (qjphd.indexOf(token) == -1) {
+            countIndex = qjphdArr.findIndex(x => x.indexOf(token) != -1);
+            // countIndex = qjphd.indexOf(token) == -1
+            if (countIndex == -1) {
+                countIndex++;
                 if (qjphd == '')
                     qjphd = newqjphd
                 else
@@ -282,18 +326,38 @@ function qjpck() {
             }
         }
 
-        const newqjpbody = $request.body
-        if (newqjpbody) {
-            if (qjpbody.indexOf(token) == -1) {
-                if (qjpbody == '')
-                    qjpbody = newqjpbody
-                else
-                    qjpbody = qjpbody + "@" + newqjpbody
+        const newqjpurl = $request.url
+        if (qjpurlArr.length < countIndex + 1)
+            qjpurlArr.push(newqjpurl)
+        else
+            qjpurlArr[countIndex] = newqjpurl;
+        // if (qjpurl.indexOf(newqjpurl) == -1) {
+        //     if (qjpurl == '')
+        //         qjpurl = newqjpurl
+        //     else
+        //         qjpurl = qjpurl + "@" + newqjpurl
+        //     $.setdata(qjpurl, `qjpurl${status}`)
+        //     $.log(newqjpurl)
+        // }
 
-                $.setdata(qjpbody, `qjpbody${status}`)
-                $.log(newqjpbody)
-            }
-        }
+
+        const newqjpbody = $request.body
+        if (qjpurlArr.length < countIndex + 1)
+            qjpurlArr.push(newqjpbody)
+        else
+            qjpurlArr[countIndex] = newqjpbody;
+
+        // if (newqjpbody) {
+        //     if (qjpbody.indexOf(token) == -1) {
+        //         if (qjpbody == '')
+        //             qjpbody = newqjpbody
+        //         else
+        //             qjpbody = qjpbody + "@" + newqjpbody
+
+        //         $.setdata(qjpbody, `qjpbody${status}`)
+        //         $.log(newqjpbody)
+        //     }
+        // }
 
         $.msg($.name, "", `趣键盘${status}获取headers成功`)
 
