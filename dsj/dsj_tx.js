@@ -39,6 +39,7 @@ const TxMap = {
     100: "tx0100"
 };
 
+const defaultTx = 5;
 // var main = async function bingfatixian() {
 //     await Promise.all(accounts.map((account) => {
 //         return tixian(account)
@@ -52,52 +53,95 @@ const TxMap = {
 
     var queryTask = []
     accounts.forEach(account => {
-        account.txCode = TxMap[5]
+        account.txCode = TxMap[defaultTx]
         queryTask.push(queryCash(account))
     })
-
+    var totalMessage = ""
     //58秒查询资金情况
     var queryMessage = ''
-    Promise.all(queryTask).then(results => {
+    var queryPromise = Promise.all(queryTask).then(results => {
         queryMessage = results.join('\n')
         console.log(queryMessage)
+        return Promise.resolve();
     })
 
-    new Promise((resolve) => {
+    var txPromise = new Promise((resolve) => {
         //58秒运行，59秒开始进入抢购，每次抢购间隔200毫秒
         setTimeout(() => {
             resolve()
         }, 1000);
     }).then(() => {
-
         console.log(`开始进入抢，时间：${new Date()}`)
         var allTasks = []
         accounts.forEach(account => {
             allTasks.push(tixian(account))
         })
-        Promise.all(allTasks).then((results) => {
+        return Promise.all(allTasks).then((results) => {
             var endTime = new Date()
-
+            endTime.getHours();
             console.log(`结束抢，时间：${new Date()}`)
             var resultMessage = '\n抢提现的结果:'
             console.log(`\n抢提现的结果:`)
             for (let index = 0; index < accounts.length; index++) {
                 const account = accounts[index];
                 const result = results[index];
-                if (accoun.disable) {
-                    resultMessage = `${resultMessage} \n${account.desc}没有进行提现，可能今天已经提现了，要么额度不够哦。`
-                    console.log(`\n${account.desc}没有进行提现，可能今天已经提现了，要么额度不够哦。`)
+                if (account.disable) {
+                    resultMessage = `${resultMessage} \n${account.desc}没有进行提现，${account.hadTx ? "今天已经提现了" : "可能额度不够哦。"}`
+                    console.log(`\n${account.desc}没有进行提现，${account.hadTx ? "今天已经提现了" : "可能额度不够哦。"}`)
                 } else {
-                    resultMessage = resultMessage + `\n${account.desc}提现￥${accoun.txAmount}}${result ? "成功" : "失败"}`
-                    console.log(`\n${account.desc}提现￥${accoun.txAmount}}${result ? "成功" : "失败"}`)
+                    account.isSucess = result;
+                    resultMessage = resultMessage + `\n${account.desc}提现￥${account.txAmount}}${result ? "成功" : "失败"}`
+                    console.log(`\n${account.desc}提现￥${account.txAmount}${result ? "成功" : "失败"}`)
                 }
             }
 
             if ($.isNode()) {
-                notify.sendNotify(`电视家提现资格抢购`, queryMessage + resultMessage);
+                totalMessage = queryMessage + resultMessage;
             }
+            return Promise.resolve()
         })
     })
+
+    Promise.all([queryPromise, txPromise]).then(() => {
+        //最后一波也没抢到，则随机提现
+        var endTime = new Date()
+        if (endTime.getHours() >= 20) {
+            var failAccounts = accounts.filter(x => !x.hadTx && !x.isSucess);
+            if (failAccounts.length > 0) {
+                console.log("\n 对失败账号随机提现！")
+                totalMessage = totalMessage + "\n随即提现："
+                var rantTxPromise = []
+                var rantTxAccounts = []
+                failAccounts.forEach(account => {
+                    if (typeof account.randTx === 'string' && account.randTx === "") {
+                        rantTxAccounts.push(account)
+                        rantTxPromise.push(tixian(account, true))
+                    }
+                    else {
+                        totalMessage = totalMessage + `\n 账号${account.desc}随机提现没有设置！`
+                        console.log(`\n 账号${account.desc}随机提现没有设置！`)
+                    }
+                });
+                Promise.all(rantTxPromise).then(results => {
+                    for (let index = 0; index < rantTxAccounts.length; index++) {
+                        const failAccount = rantTxAccounts[index];
+                        const rantReulst = results[index]
+                        if (rantReulst)
+                            totalMessage = `\n账号${failAccount.desc}随机提现￥${failAccount.txAmount}`
+                        else
+                            totalMessage = `\n账号${failAccount.desc}随机提现失败`
+                    }
+                    notify.sendNotify(`电视家提现资格抢购`, totalMessage);
+
+                })
+            } else
+                notify.sendNotify(`电视家提现资格抢购`, totalMessage);
+        }
+        else
+            notify.sendNotify(`电视家提现资格抢购`, totalMessage);
+    })
+
+
 
     // await Promise.all(accounts.map((account) => {
     //     // return tixian(account)
@@ -105,12 +149,16 @@ const TxMap = {
     // }));
 })();
 
-async function tixian(account) {
+async function tixian(account, isrant = false) {
     if (typeof account.disable === 'boolean' && account.disable) {
         return false
     }
 
-    var qiangouparas = account[account.txCode];
+    var qiangouparas = []
+    if (isrant)
+        qiangouparas.push(account.randTx)
+    else
+        qiangouparas = account[account.txCode];
     account.count = qiangouparas.length
     const headers = getHeader(account)
     var isSucess = false
@@ -118,17 +166,20 @@ async function tixian(account) {
     let promise = new Promise((resolve, reject) => {
         //每200毫秒执行一次
         account.intervalId = setInterval(async () => {
+            if (account.hadTx)
+                resolve(false)
             if (currentIndex + 1 <= account.count) {
                 const para = qiangouparas[currentIndex]
                 currentIndex++
                 const url = `http://pay.gaoqingdianshi.com/api/v2/cash/withdrawal?${para}`
                 var result = await axios.get(url, { headers })
-                if (result.data.errCode != 301 && result.data.errCode != 314) {
+                if (result.data.errCode == 0) {
+                    account.txAmount = result.data.data.prise / 100
                     console.log(`\n账号${account.desc}提现￥${account.txAmount}成功！`)
                     isSucess = true;
                 }
                 else
-                    console.log(`\n账号${account.desc}提现￥${account.txAmount}：-${result.data.msg}！`)
+                    console.log(`\n账号${account.desc}提现￥${account.txAmount ? account.txAmount : defaultTx}：-${result.data.msg}！`)
 
                 if (currentIndex >= account.count || isSucess)
                     resolve(isSucess)
@@ -163,6 +214,7 @@ async function queryCash(account) {
         //今天已经提现
         if (isWithdrawalToday) {
             account.disable = true
+            account.hadTx = true;
         }
         else {
             //额度，金币未达到要求5元
