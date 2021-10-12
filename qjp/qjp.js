@@ -262,7 +262,7 @@ function qjpck() {
     if ($request.url.indexOf("collectPigMoney") > -1) {
         const newqjpurl = $request.url
         if (qjpurl) {
-            if (qjpurl.indexOf(newqjpurl) == -1{
+            if (qjpurl.indexOf(newqjpurl) == -1){
                 if (qjpurl == '')
                     qjpurl = newqjpurl
                 else
