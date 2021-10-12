@@ -261,17 +261,15 @@ let qjphds = ""
 function qjpck() {
     if ($request.url.indexOf("collectPigMoney") > -1) {
         const newqjpurl = $request.url
-        if (qjpurl) {
-            if (qjpurl.indexOf(newqjpurl) == -1){
-                if (qjpurl == '')
-                    qjpurl = newqjpurl
-                else
-                    qjpurl = qjpurl + "@" + newqjpurl
-                $.setdata(qjpurl, `qjpurl${status}`)
-                $.log(newqjpurl)
-            }
+        if (qjpurl.indexOf(newqjpurl) == -1) {
+            if (qjpurl == '')
+                qjpurl = newqjpurl
+            else
+                qjpurl = qjpurl + "@" + newqjpurl
+            $.setdata(qjpurl, `qjpurl${status}`)
+            $.log(newqjpurl)
         }
-        console.log("aaaaaaaaaa \n"+$request.headers)
+        console.log("aaaaaaaaaa \n" + $request.headers)
         const newqjphd = JSON.stringify($request.headers)
         if (newqjphd) {
             var token = newqjphd["Auth-Token"];
