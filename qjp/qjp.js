@@ -269,10 +269,9 @@ function qjpck() {
             $.setdata(qjpurl, `qjpurl${status}`)
             $.log(newqjpurl)
         }
-        console.log("aaaaaaaaaa \n" + $request.headers)
         const newqjphd = JSON.stringify($request.headers)
         if (newqjphd) {
-            var token = newqjphd["Auth-Token"];
+            var token = $request.headers["Auth-Token"];
             if (qjphd.indexOf(token) == -1) {
                 if (qjphd == '')
                     qjphd = newqjphd
