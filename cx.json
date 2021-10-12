@@ -45,7 +45,12 @@
             "enable": true
         },
         {
-            "match": "https://qjp.qujianpan.com/qjp-app/game/savingsBank/collectPigMoney",
+            "match": "https://qjp.qujianpan.com/qjp-app/game/savingsBank*/collectPigMoney",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/qjp/qjp.js",
+            "enable": true
+        },
+        {
+            "match": "https://qjp.qujianpan.com/qjp-app/game/savingsBank4app/collectPigMoney",
             "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/qjp/qjp.js",
             "enable": true
         }
