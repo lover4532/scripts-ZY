@@ -47,9 +47,9 @@ let status;
 
 status = (status = ($.getval("qjpstatus") || "1")) > 1 ? `${status}` : "";
 let qjpurlArr = [], qjphdArr = [], qjpbodyArr = [], qjpcount = ''
-let qjpurl = $.getdata('qjpurl')
+let qjpurl = $.getdata('qjpurl') ? $.getdata('qjpurl') : ""
 let qjphd = $.isNode() ? (process.env.qjphd ? process.env.qjphd : "") : ($.getdata('qjphd') ? $.getdata('qjphd') : "")
-let qjpbody = $.getdata('qjpbody')
+let qjpbody = $.getdata('qjpbody') ? $.getdata('qjpbody') : ""
 let b = Math.round(new Date().getTime() / 1000).toString();
 let ticket = ''
 let DD = RT(28000, 35000)
@@ -260,22 +260,43 @@ let qjphds = ""
 
 function qjpck() {
     if ($request.url.indexOf("collectPigMoney") > -1) {
-        const qjpurl = $request.url
-        if (qjpurl) $.setdata(qjpurl, `qjpurl${status}`)
-        $.log(qjpurl)
+        const newqjpurl = $request.url
+        if (qjpurl) {
+            if (qjpurl.indexOf(newqjpurl) == -1{
+                if (qjpurl == '')
+                    qjpurl = newqjpurl
+                else
+                    qjpurl = qjpurl + "@" + newqjpurl
+                $.setdata(qjpurl, `qjpurl${status}`)
+                $.log(newqjpurl)
+            }
+        }
 
         const newqjphd = JSON.stringify($request.headers)
         if (newqjphd) {
             var token = newqjphd["Auth-Token"];
-            if (qjphd.indexOf(token) == -1){
-                $.setdata(qjphd + "@" + newqjphd, `qjphd${status}`)
+            if (qjphd.indexOf(token) == -1) {
+                if (qjphd == '')
+                    qjphd = newqjphd
+                else
+                    qjphd = qjphd + "@" + newqjphd
+                $.setdata(qjphd, `qjphd${status}`)
                 $.log(newqjphd)
             }
         }
 
-        const qjpbody = $request.body
-        if (qjpbody) $.setdata(qjpbody, `qjpbody${status}`)
-        $.log(qjpbody)
+        const newqjpbody = $request.body
+        if (newqjpbody) {
+            if (qjpbody.indexOf(token) == -1) {
+                if (qjpbody == '')
+                    qjpbody = newqjpbody
+                else
+                    qjpbody = qjpbody + "@" + newqjpbody
+
+                $.setdata(qjpbody, `qjpbody${status}`)
+                $.log(newqjpbody)
+            }
+        }
 
         $.msg($.name, "", `趣键盘${status}获取headers成功`)
 
