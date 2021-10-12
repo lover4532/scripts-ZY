@@ -80,6 +80,15 @@
         "type": "runjs",
         "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zqspeed/zq_speed_tx.js"
       }
+    },
+    {
+      "name": "趣键盘",
+      "type": "cron",
+      "time": "10 6-23 * * *",
+      "job": {
+        "type": "runjs",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/qjp/qjp.js"
+      }
     }
   ]
 }

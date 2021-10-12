@@ -1,7 +1,7 @@
 {
     "name": "好多羊毛要薅",
     "author": "elecV2p",
-    "mitmhost": ["mspace.gmmc.com.cn", "api.st615.com","api.xqustar.com","user.youth.cn"],
+    "mitmhost": ["mspace.gmmc.com.cn", "api.st615.com","api.xqustar.com","user.youth.cn","qjp.qujianpan.com"],
     "rewrite": [{
             "match": "https://mspace.gmmc.com.cn/customer-app/task-mapi",
             "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/gqsl/gqsl.js",
@@ -42,6 +42,11 @@
         {
             "match": "https://user.youth.cn/v1/Withdraw/wechat.json",
             "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/zq_speed_tx.js",
+            "enable": true
+        },
+        {
+            "match": "https://qjp.qujianpan.com/qjp-app/game/savingsBank/collectPigMoney",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/qjp/qjp.js",
             "enable": true
         }
     ]
