@@ -48,7 +48,7 @@ let status;
 status = (status = ($.getval("qjpstatus") || "1")) > 1 ? `${status}` : "";
 let qjpurlArr = [], qjphdArr = [], qjpbodyArr = [], qjpcount = ''
 let qjpurl = $.getdata('qjpurl')
-let qjphd= $.isNode() ? (process.env.qjphd ? process.env.qjphd : "") : ($.getdata('qjphd') ? $.getdata('qjphd') : "")
+let qjphd = $.isNode() ? (process.env.qjphd ? process.env.qjphd : "") : ($.getdata('qjphd') ? $.getdata('qjphd') : "")
 let qjpbody = $.getdata('qjpbody')
 let b = Math.round(new Date().getTime() / 1000).toString();
 let ticket = ''
@@ -58,7 +58,7 @@ let tx = ($.getval('tx') || '1');
 let id = '', txid = ''
 let y = -1
 let m = 80
-let z= -1
+let z = -1
 let token = ''
 $.message = ''
 let qjphds = ""
@@ -71,34 +71,117 @@ let qjphds = ""
     if (typeof $request !== "undefined") {
         await qjpck()
     } else {
-        if(!$.isNode()){
-        qjpurlArr.push($.getdata('qjpurl'))
-        qjphdArr.push($.getdata('qjphd'))
-        qjpbodyArr.push($.getdata('qjpbody'))
+        if (!$.isNode()) {
+            qjpurlArr.push($.getdata('qjpurl'))
+            qjphdArr.push($.getdata('qjphd'))
+            qjpbodyArr.push($.getdata('qjpbody'))
 
-        let qjpcount = ($.getval('qjpcount') || '1');
-        for (let i = 2; i <= qjpcount; i++) {
-            qjpurlArr.push($.getdata(`qjpurl${i}`))
-            qjphdArr.push($.getdata(`qjphd${i}`))
-            qjpbodyArr.push($.getdata(`qjpbody${i}`))
-        }
-        console.log(
-            `\n\n=============================================== 脚本执行 - 北京时间(UTC+8)：${new Date(
-                new Date().getTime() +
-                new Date().getTimezoneOffset() * 60 * 1000 +
-                8 * 60 * 60 * 1000
-            ).toLocaleString()} ===============================================\n`);
-        for (let i = 0; i < qjphdArr.length; i++) {
-            if (qjphdArr[i]) {
+            let qjpcount = ($.getval('qjpcount') || '1');
+            for (let i = 2; i <= qjpcount; i++) {
+                qjpurlArr.push($.getdata(`qjpurl${i}`))
+                qjphdArr.push($.getdata(`qjphd${i}`))
+                qjpbodyArr.push($.getdata(`qjpbody${i}`))
+            }
+            console.log(
+                `\n\n=============================================== 脚本执行 - 北京时间(UTC+8)：${new Date(
+                    new Date().getTime() +
+                    new Date().getTimezoneOffset() * 60 * 1000 +
+                    8 * 60 * 60 * 1000
+                ).toLocaleString()} ===============================================\n`);
+            for (let i = 0; i < qjphdArr.length; i++) {
+                if (qjphdArr[i]) {
 
-                qjpurl = qjpurlArr[i];
-                qjphd = qjphdArr[i];
-                qjpbody = qjpbodyArr[i];
+                    qjpurl = qjpurlArr[i];
+                    qjphd = qjphdArr[i];
+                    qjpbody = qjpbodyArr[i];
 
-                $.index = i + 1;
-                console.log(`\n\n开始【趣键盘${$.index}】`)
+                    $.index = i + 1;
+                    console.log(`\n\n开始【趣键盘${$.index}】`)
 
 
+                    await $.wait(2000)
+                    await qjpfbk()
+                    await $.wait(2000)
+                    await qjpcsk()
+                    await $.wait(2000)
+                    await qjpyqk()
+                    await $.wait(2000)
+                    for (let k = 0; k < 3; k++) {
+                        if (y < 20) { y++ }
+                        $.index = k + 1
+                        console.log(`\n【开始第${k + 1}次执行偷好友猪币任务!】\n等待2秒开始偷取`)
+                        await $.wait(2000)
+                        await qjpsteal(y)
+                        await $.wait(2000)
+                    }
+
+                    await qjpbox()
+                    await $.wait(2000)
+
+                    for (let r = 0; r < 10; r++) {
+                        $.index = r + 1
+                        if (m < 90) {
+                            m++
+                        }
+                        console.log(`\n【开始第${r + 1}次执行刮刮卡任务!】\n等待2秒开始`)
+                        await $.wait(2000)
+                        await qjpggkzb(m)
+                        await $.wait(2000)
+                        await qjpggkks(m)
+                        await $.wait(2000)
+                        await qjpggkewjlks(m)
+                        await $.wait(2000)
+                        await qjpggkewjlfb(m)
+                    }
+                    for (let x = 0; x < 2; x++) {
+                        $.index = x + 1
+                        console.log(`\n【开始第${x + 1}次执行转盘任务!】\n等待2秒开始转盘`)
+                        await $.wait(2000)
+                        await qjpzp()
+                        await $.wait(2000)
+                    }
+                    for (let t = 0; t < 4; t++) {
+                        if (z < 20) { z++ }
+                        $.index = t + 1
+                        console.log(`\n【开始第${t + 1}次执行集卡任务!】\n等待2秒开始集卡`)
+                        await $.wait(2000)
+                        await qjpjkrw(z)
+                        await $.wait(2000)
+                        await qjpjkrwlq(z)
+                        await $.wait(2000)
+                    }
+                    await qjpsprw()
+                    await $.wait(2000)
+                    await qjpsq()
+                    await $.wait(2000)
+                    await qjpdh()
+                    await qjpqrqd()
+                    await $.wait(2000)
+                    await qjpbalance()
+                    y = -1
+                    m = 80
+                    z = -1
+                    message()
+                }
+            }
+        } else {
+            if (process.env.qjphd && process.env.qjphd.indexOf('@') > -1) {
+                qjphdArr = process.env.qjphd.split('@');
+                console.log(`您选择的是用"@"隔开\n`)
+            } else {
+                qjphds = [process.env.qjphd]
+            };
+            Object.keys(qjphds).forEach((item) => {
+                if (qjphds[item]) {
+                    qjphdArr.push(qjphds[item])
+                }
+            })
+            console.log(`共${qjphdArr.length}个cookie`)
+            for (let k = 0; k < qjphdArr.length; k++) {
+                $.message = ""
+                qjphd = qjphdArr[k]
+                $.index = k + 1;
+                console.log(`\n开始【趣键盘${$.index}】`)
                 await $.wait(2000)
                 await qjpfbk()
                 await $.wait(2000)
@@ -147,8 +230,8 @@ let qjphds = ""
                     await $.wait(2000)
                     await qjpjkrw(z)
                     await $.wait(2000)
-					await qjpjkrwlq(z)
-					await $.wait(2000)
+                    await qjpjkrwlq(z)
+                    await $.wait(2000)
                 }
                 await qjpsprw()
                 await $.wait(2000)
@@ -162,92 +245,9 @@ let qjphds = ""
                 m = 80
                 z = -1
                 message()
+
             }
         }
-    }else  {
-        if (process.env.qjphd && process.env.qjphd.indexOf('@') > -1) {
-            qjphdArr = process.env.qjphd.split('@');
-          console.log(`您选择的是用"@"隔开\n`)
-      } else {
-        qjphds = [process.env.qjphd]
-      };
-      Object.keys(qjphds).forEach((item) => {
-      if (qjphds[item]) {
-        qjphdArr.push(qjphds[item])
-      }
-  })
-        console.log(`共${qjphdArr.length}个cookie`)
-          for (let k = 0; k < qjphdArr.length; k++) {
-              $.message = ""
-              qjphd = qjphdArr[k]
-              $.index = k + 1;
-        console.log(`\n开始【趣键盘${$.index}】`)
-        await $.wait(2000)
-        await qjpfbk()
-        await $.wait(2000)
-        await qjpcsk()
-        await $.wait(2000)
-        await qjpyqk()
-        await $.wait(2000)
-        for (let k = 0; k < 3; k++) {
-            if (y < 20) { y++ }
-            $.index = k + 1
-            console.log(`\n【开始第${k + 1}次执行偷好友猪币任务!】\n等待2秒开始偷取`)
-            await $.wait(2000)
-            await qjpsteal(y)
-            await $.wait(2000)
-        }
-
-        await qjpbox()
-        await $.wait(2000)
-
-        for (let r = 0; r < 10; r++) {
-            $.index = r + 1
-            if (m < 90) {
-                m++
-            }
-            console.log(`\n【开始第${r + 1}次执行刮刮卡任务!】\n等待2秒开始`)
-            await $.wait(2000)
-            await qjpggkzb(m)
-            await $.wait(2000)
-            await qjpggkks(m)
-            await $.wait(2000)
-            await qjpggkewjlks(m)
-            await $.wait(2000)
-            await qjpggkewjlfb(m)
-        }
-        for (let x = 0; x < 2; x++) {
-            $.index = x + 1
-            console.log(`\n【开始第${x + 1}次执行转盘任务!】\n等待2秒开始转盘`)
-            await $.wait(2000)
-            await qjpzp()
-            await $.wait(2000)
-        }
-        for (let t = 0; t < 4; t++) {
-            if (z < 20) { z++ }
-            $.index = t + 1
-            console.log(`\n【开始第${t + 1}次执行集卡任务!】\n等待2秒开始集卡`)
-            await $.wait(2000)
-            await qjpjkrw(z)
-            await $.wait(2000)
-            await qjpjkrwlq(z)
-            await $.wait(2000)
-        }
-        await qjpsprw()
-        await $.wait(2000)
-        await qjpsq()
-        await $.wait(2000)
-        await qjpdh()
-        await qjpqrqd()
-        await $.wait(2000)
-        await qjpbalance()
-        y = -1
-        m = 80
-        z = -1
-        message()
-
-    }
-}
 
 
     }
@@ -264,9 +264,14 @@ function qjpck() {
         if (qjpurl) $.setdata(qjpurl, `qjpurl${status}`)
         $.log(qjpurl)
 
-        const qjphd = JSON.stringify($request.headers)
-        if (qjphd) $.setdata(qjphd, `qjphd${status}`)
-        $.log(qjphd)
+        const newqjphd = JSON.stringify($request.headers)
+        if (newqjphd) {
+            var token = newqjphd["Auth-Token"];
+            if (qjphd.indexOf(token) == -1){
+                $.setdata(qjphd + "@" + newqjphd, `qjphd${status}`)
+                $.log(newqjphd)
+            }
+        }
 
         const qjpbody = $request.body
         if (qjpbody) $.setdata(qjpbody, `qjpbody${status}`)
@@ -604,7 +609,7 @@ function qjpzp(timeout = 0) {
                     if (result.data.type == 1) {
 
                         console.log(`【转盘抽奖获得金币】：${result.data.rewardNum}\n`)
-                      
+
                     }
                     else {
                         console.log(`【运气真差，转盘抽奖没有获得金币】\n`)
@@ -652,7 +657,7 @@ function qjpzpzj(timeout = 0) {
 
 
                     console.log(`【转盘抽奖增加次数】：${result.message}\n`)
-                    
+
 
                 }
                 else {
@@ -965,7 +970,7 @@ function qjpggkzb(m) {
                 if (result.code == 200) {
 
                     console.log(`【刮刮卡开始】}\n`)
-                   
+
                 } else {
 
                     console.log(`【刮刮卡准备失败】：${result.message}\n`)
@@ -1011,7 +1016,7 @@ function qjpggkks(m) {
 
                     console.log(`【刮刮卡开始刮取id】：${result.data.coinAdded}\n`)
                     console.log(`【当前金币总数】：${result.data.coinBalance}\n`)
-                   
+
                 } else {
 
                     console.log(`【刮刮卡开始失败时间未到或已刮过】：${result.message}\n`)
@@ -1058,7 +1063,7 @@ function qjpggkewjlks(m) {
                     console.log(`【刮刮卡额外奖励开始】：${result.message}\n`)
                     console.log(`【获得金币】：${result.data.coinAdded}\n`)
                     console.log(`【当前金币总数】：${result.data.coinBalance}\n`)
-                   
+
                 } else {
 
                     console.log(`【刮刮卡额外奖励开始失败】：${result.message}\n`)
@@ -1106,7 +1111,7 @@ function qjpggkewjlfb(m) {
                     console.log(`【刮刮卡额外奖励翻倍开始】：${result.message}\n`)
                     console.log(`【获得金币】：${result.data.coinAdded}\n`)
                     console.log(`【当前金币总数】：${result.data.coinBalance}\n`)
-                    
+
                 } else {
 
                     console.log(`【刮刮卡额外奖励翻倍开始失败】：${result.message}\n`)
@@ -1131,7 +1136,7 @@ function qjpjkrw(z) {
         let url = {
             url: `https://qjp.qujianpan.com/qjp-app/game/tiantianCard/doneCard?cardType=${z}`,
             headers: JSON.parse(qjphd),
-            
+
         }
         $.get(url, async (err, resp, data) => {
             try {
@@ -1141,8 +1146,8 @@ function qjpjkrw(z) {
                 if (result.code == 200) {
 
                     console.log(`【集卡完成任务】：${result.message}\n`)
-					
-                  
+
+
                 } else {
 
                     console.log(`【集卡完成任务失败】：${result.message}\n`)
@@ -1165,7 +1170,7 @@ function qjpjkrwlq(z) {
         let url = {
             url: `https://qjp.qujianpan.com/qjp-app/game/tiantianCard/acquireCard?cardType=${z}`,
             headers: JSON.parse(qjphd),
-            
+
         }
         $.get(url, async (err, resp, data) => {
             try {
@@ -1175,8 +1180,8 @@ function qjpjkrwlq(z) {
                 if (result.code == 200) {
 
                     console.log(`【集卡领取】：${result.message}\n`)
-					
-                   
+
+
                 } else {
 
                     console.log(`【集卡领取失败】：${result.message}\n`)
@@ -1211,13 +1216,13 @@ function qjpqrqd(timeout = 0) {
                 if (result.code == 200) {
 
                     console.log(`【开始七日签到】：${result.message}\n`)
-					console.log(`【当前签到天数】：${result.data.days}\n`)
-					console.log(`【获得经验】：${result.data.experience}\n`)
-					console.log(`【获得猪币】：${result.data.pigMoney}\n`)
+                    console.log(`【当前签到天数】：${result.data.days}\n`)
+                    console.log(`【获得经验】：${result.data.experience}\n`)
+                    console.log(`【获得猪币】：${result.data.pigMoney}\n`)
                     $.message += `【开始七日签到】：${result.message}\n`
-					$.message += `【当前签到天数】：${result.data.days}\n`
-					$.message += `【获得经验】：${result.data.experience}\n`
-					$.message += `【获得猪币】：${result.data.pigMoney}\n`
+                    $.message += `【当前签到天数】：${result.data.days}\n`
+                    $.message += `【获得经验】：${result.data.experience}\n`
+                    $.message += `【获得猪币】：${result.data.pigMoney}\n`
                 } else {
 
                     console.log(`【开始七日签到失败】：${result.message}\n`)
