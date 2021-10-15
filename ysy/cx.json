@@ -3,7 +3,11 @@
     "author": "elecV2p",
     "mitmhost": ["api.ys7.com"],
     "rewrite": [{
-        "match": "https://api.ys7.com/v3/integral/task/complete",
+        "match": "https://api.ys7.com/v3/users/login/v2",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/ysy/ysy.js",
+        "enable": true
+    },{
+        "match": "https://api.ys7.com/v3/integral/yd/getUserOpenBoxCd",
         "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/ysy/ysy.js",
         "enable": true
     }]
