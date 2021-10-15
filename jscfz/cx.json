@@ -1,0 +1,11 @@
+{
+    "name": "嘉实宠粉站",
+    "author": "elecV2p",
+    "mitmhost": ["jiashijijin.01lb.com.cn"],
+    "rewrite": [{
+            "match": "https://jiashijijin.01lb.com.cn/api/user/showUserInfo",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/jscfz/jscfz.js",
+            "enable": true
+        }
+    ]
+}
