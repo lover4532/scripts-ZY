@@ -1,5 +1,9 @@
+/*
+[task_local]
+#电视家提现
+58 59 11,19 * * * https://raw.githubusercontent.com/sonce/woolscripts/main/dsj/dsj_tx.js, tag=电视家提现, enabled=true
+*/
 'use strict';
-
 const axios = require('axios');
 const { resolve } = require('path');
 const dsjCookie = require('./dsjCOOKIE')
@@ -113,7 +117,7 @@ const defaultTx = 5;
                 var rantTxPromise = []
                 var rantTxAccounts = []
                 failAccounts.forEach(account => {
-                    if (typeof account.randTx === 'string' && account.randTx === "") {
+                    if (typeof account.randTx === 'string' && account.randTx !== "") {
                         rantTxAccounts.push(account)
                         rantTxPromise.push(tixian(account, true))
                     }
@@ -174,7 +178,7 @@ async function tixian(account, isrant = false) {
                 const url = `http://pay.gaoqingdianshi.com/api/v2/cash/withdrawal?${para}`
                 var result = await axios.get(url, { headers })
                 if (result.data.errCode == 0) {
-                    account.txAmount = result.data.data.prise / 100
+                    account.txAmount = result.data.data.price / 100
                     console.log(`\n账号${account.desc}提现￥${account.txAmount}成功！`)
                     isSucess = true;
                 }

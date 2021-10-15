@@ -1,0 +1,27 @@
+{
+    "name": "书旗小说",
+    "author": "elecV2p",
+    "mitmhost": ["ocean.shuqireader.com"],
+    "rewrite": [{
+            "match": "https://ocean.shuqireader.com/api/ad/v1/api/prize/lottery",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/sqxs/sqxsgetck.js",
+            "enable": true
+        }, {
+            "match": "https://ocean.shuqireader.com/api/activity/activity/v1/lottery/draw",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/sqxs/sqxsgetck.js",
+            "enable": true
+        }, {
+            "match": "https://ocean.shuqireader.com/api/activity/xapi/gold/record",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/sqxs/sqxsgetck.js",
+            "enable": true
+        }, {
+            "match": "https://ocean.shuqireader.com/api/prizecenter/xapi/prize/manual/receive",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/sqxs/sqxsgetck.js",
+            "enable": true
+        }, {
+            "match": "https://ocean.shuqireader.com/api/ad/v1/api/prize/readpage/pendant/lottery",
+            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/sqxs/sqxsgetck.js",
+            "enable": true
+        }
+    ]
+}

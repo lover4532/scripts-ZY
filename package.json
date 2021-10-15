@@ -4,13 +4,14 @@
   "description": "",
   "main": "zq_speed_box.js",
   "scripts": {
-    "start": "node --inspect dsj\\dsj_tx.js",
+    "start": "node --inspect test.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.22.0",
+    "dotenv": "^10.0.0",
     "got": "^11.8.2",
     "tough-cookie": "^4.0.0"
   }

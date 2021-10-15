@@ -1,0 +1,10 @@
+{
+    "name": "萤石云",
+    "author": "elecV2p",
+    "mitmhost": ["api.ys7.com"],
+    "rewrite": [{
+        "match": "https://api.ys7.com/v3/integral/task/complete",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/ysy/ysy.js",
+        "enable": true
+    }]
+}
