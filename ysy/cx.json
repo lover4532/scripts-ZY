@@ -10,5 +10,9 @@
         "match": "https://api.ys7.com/v3/integral/yd/getUserOpenBoxCd",
         "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/ysy/ysy.js",
         "enable": true
+    },{
+        "match": "https://api.ys7.com/v3/integral/yd/pay",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/ysy/ysy.js",
+        "enable": true
     }]
 }
