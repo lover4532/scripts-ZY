@@ -3,9 +3,8 @@
     "author": "elecV2p",
     "mitmhost": ["m.lainiwl.top"],
     "rewrite": [{
-            "match": ".*read_channel\/do_read&pageshow.*",
-            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/10sread/10sread.js",
-            "enable": true
-        }
-    ]
+        "match": ".*read_channel\/do_read&pageshow.*",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/10sread/10sread.js",
+        "enable": true
+    }]
 }
