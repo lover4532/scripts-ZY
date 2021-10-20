@@ -1,7 +1,7 @@
 {
     "name": "好多羊毛要薅",
     "author": "elecV2p",
-    "mitmhost": ["mspace.gmmc.com.cn", "api.st615.com", "api.xqustar.com", "user.youth.cn", "qjp.qujianpan.com", "proxy.guodongbaohe.com"],
+    "mitmhost": ["mspace.gmmc.com.cn", "api.st615.com", "user.youth.cn", "qjp.qujianpan.com", "proxy.guodongbaohe.com"],
     "rewrite": [{
             "match": "https://mspace.gmmc.com.cn/customer-app/task-mapi",
             "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/gqsl/gqsl.js",
@@ -9,10 +9,6 @@
         }, {
             "match": "https://api.st615.com/v1/user/info?",
             "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/jzread/jzread.js",
-            "enable": true
-        }, {
-            "match": "https://api.xqustar.com/api/task/v2/list",
-            "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/qxq/qxq.js",
             "enable": true
         }, {
             "match": "https://user.youth.cn/v1/user/userinfo.json",

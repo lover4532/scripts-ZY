@@ -20,14 +20,6 @@
         "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/jzread/jzread.js"
       }
     }, {
-      "name": "趣星球",
-      "type": "cron",
-      "time": "0 8-18/2 * * *",
-      "job": {
-        "type": "runjs",
-        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/qxq/qxq.js"
-      }
-    }, {
       "name": "中青极速版文章",
       "type": "cron",
       "time": "18 9 * * *",
