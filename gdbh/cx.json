@@ -1,0 +1,10 @@
+{
+    "name": "果冻宝盒",
+    "author": "elecV2p",
+    "mitmhost": ["proxy.guodongbaohe.com"],
+    "rewrite": [{
+        "match": "https://proxy.guodongbaohe.com/income/mymoney",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/gdbh/gdbh.js",
+        "enable": true
+    }]
+}
