@@ -1,0 +1,10 @@
+{
+    "name": "聚看点",
+    "author": "elecV2p",
+    "mitmhost": ["www.xiaodouzhuan.cn"],
+    "rewrite": [{
+        "match": "https://www.xiaodouzhuan.cn/jkd/newMobileMenu/infoMe.action",
+        "target": "https://raw.githubusercontent.com/sonce/woolscripts/main/jkd/jkd.js",
+        "enable": true
+    }]
+}
