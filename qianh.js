@@ -38,7 +38,7 @@ https://www.*com/read/v1/get_time_list script-path=https://raw.githubusercontent
 千禾阅读个人信息和领取重写 = type=http-request,pattern=https://www.qianhe5.com/,requires-header=1,max-size=0,script-path=https://raw.githubusercontent.com/lover4532/scripts-ZY/main/qianh.js,script-update-interval=0
 千禾阅读任务重写 = type=http-request,pattern=https://www.*com/read/v1/get_time_list,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/lover4532/scripts-ZY/main/qianh.js,script-update-interval=0
 [MITM]
-hostname = www.qianhe5.com,www.qianhe9.com
+hostname = www.qianhe5.com,www.qianhe9.com，www.qianhe888.com
 */
 
 
@@ -120,7 +120,7 @@ key = key.urlKey
 time = parseInt((new Date).getTime() / 1e3)
 sign = md5(`<span>span.qianhe</span>${time}<span>span.qianhe</span>`)
 let url = {
-        url : `https://www.qliang2.com/read/v1/get_time_list`,
+        url : `https://www.qliang888.com/read/v1/get_time_list`,
         headers : JSON.parse(qhydhd),
         body : `{"urlKey":"${key}","time":${time},"sign":"${sign}"}`,
 }
@@ -164,7 +164,7 @@ key = key.urlKey
 time = parseInt((new Date).getTime() / 1e3)
 sign = md5(`<span>span.qianhe</span>${time}<span>span.qianhe</span>`)
 let url = {
-        url : `https://www.qianhe9.com/read/v1/get_time_list_task`,
+        url : `https://www.qianhe888.com/read/v1/get_time_list_task`,
         headers : JSON.parse(qhydhd),
         body : `{"urlKey":"${key}","time_id":${tid},"time":${time},"sign":"${sign}"}`,
 }
@@ -217,7 +217,7 @@ let t = {};
 
 uid = t.str_id
 let url = {
-        url : `https://www.qianhe9.com/read/v1/get_click_task?urlKey=${key}&task_id=${id}&type=1&str_id=${uid}&sign=${sign}&time=${time}`,
+        url : `https://www.qianhe888.com/read/v1/get_click_task?urlKey=${key}&task_id=${id}&type=1&str_id=${uid}&sign=${sign}&time=${time}`,
         headers : JSON.parse(qhydhd),
 }
       $.get(url, async (err, resp, data) => {
@@ -258,7 +258,7 @@ key = key.urlKey
 time = parseInt((new Date).getTime() / 1e3)
 sign = md5(`<span>span.qianhe</span>${time}<span>span.qianhe</span>`)
 let url = {
-        url : `https://www.qianhe9.com/read/v1/get_click_task`,
+        url : `https://www.qianhe888.com/read/v1/get_click_task`,
         headers : JSON.parse(qhydhd),
         body : `{"urlKey":"${key}","task_id":${id},"time":${times},"type":2,"str_id":"${strid}","time":${time},"sign":"${sign}"}`,
 }
