@@ -191,12 +191,9 @@ Github监控 = type=cron,cronexp="0 8,20 * * *",script-path=https://raw.githubus
 爱海盐 = type=cron,cronexp="1 10,16 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/AiHaiYan/AiHaiYan.js,script-update-interval=0,timeout=3600,wake-system=1
 
 [MITM]
-hostname = %APPEND% app.jinlinghotels.com,%APPEND% h5.youzan.com,%APPEND% api.nblinks.cn,%APPEND% wx-camp-wzry.mscampapi.digitalyili.com,%APPEND% lwapp.yzw.cn,%APPEND% hy.51pt.top,%APPEND% xcx.exijiu.com,%APPEND% act.you.163.com,%APPEND% xapi.weimob.com,
-qiehuang-apig.xiaoyisz.com, plugin.szzbmy.com,%APPEND% m.tk.cn,%APPEND% xiaodian.miyatech.com,%APPEND% xiaodian.miyatech.com,%APPEND% prod-api.nissinfoodium.com.cn,%APPEND% psjia.ipason.com,%APPEND% mp-isv.youzanyun.com,%APPEND% jde.mtbcpt.com,%APPEND% mpb.jingjiu.com,
-%APPEND% www.kugua.com,%APPEND% www.js96296.com,%APPEND% mole.ferrero.com.cn,%APPEND% bbs-api.iqoo.com, %APPEND% cmallapi.haday.cn,%APPEND% instax.app.xcxd.net.cn,%APPEND% cmallapi.haday.cn,%APPEND% scrm.gujing.com,%APPEND% gw.nevapp.gtmc.com.cn,
-%APPEND% mc.kukahome.com,%APPEND% ys.shajixueyuan.com,%APPEND% shopapi.skycolorful.com,%APPEND% channel.cheryfs.cn,%APPEND% api.xinc818.com,%APPEND% *.tuilong.com,%APPEND% mini-prog-wt-pro.singworld.net,%APPEND% stdcrm.dtmiller.com,
-%APPEND% cvg.17usoft.com,%APPEND% ecustomer.cntaiping.com,%APPEND% user-api.smzdm.com,%APPEND% exp2.jintaocms.com,%APPEND% jjw.jingjiu.com,%APPEND% go.heytea.com,%APPEND% hgds-crm.myaiwecom.com,%APPEND% cb-bags-slb.weinian.com.cn,
-%APPEND% min.51afa.com,%APPEND% ztvip1.cn,%APPEND% wx.ah.189.cn
+hostname = %APPEND% app.jinlinghotels.com,%APPEND% h5.youzan.com,%APPEND% api.nblinks.cn,%APPEND% wx-camp-wzry.mscampapi.digitalyili.com,%APPEND% lwapp.yzw.cn,%APPEND% hy.51pt.top,%APPEND% xcx.exijiu.com,%APPEND% act.you.163.com,%APPEND% xapi.weimob.com,qiehuang-apig.xiaoyisz.com, plugin.szzbmy.com,%APPEND% m.tk.cn,%APPEND% xiaodian.miyatech.com,%APPEND% xiaodian.miyatech.com,%APPEND% prod-api.nissinfoodium.com.cn,%APPEND% psjia.ipason.com,%APPEND% mp-isv.youzanyun.com,%APPEND% jde.mtbcpt.com,%APPEND% mpb.jingjiu.com,
+%APPEND% www.kugua.com,%APPEND% www.js96296.com,%APPEND% mole.ferrero.com.cn,%APPEND% bbs-api.iqoo.com, %APPEND% cmallapi.haday.cn,%APPEND% instax.app.xcxd.net.cn,%APPEND% cmallapi.haday.cn,%APPEND% scrm.gujing.com,%APPEND% gw.nevapp.gtmc.com.cn,%APPEND% mc.kukahome.com,%APPEND% ys.shajixueyuan.com,%APPEND% shopapi.skycolorful.com,%APPEND% channel.cheryfs.cn,%APPEND% api.xinc818.com,%APPEND% *.tuilong.com,%APPEND% mini-prog-wt-pro.singworld.net,%APPEND% stdcrm.dtmiller.com,
+%APPEND% cvg.17usoft.com,%APPEND% ecustomer.cntaiping.com,%APPEND% user-api.smzdm.com,%APPEND% exp2.jintaocms.com,%APPEND% jjw.jingjiu.com,%APPEND% go.heytea.com,%APPEND% hgds-crm.myaiwecom.com,%APPEND% cb-bags-slb.weinian.com.cn,%APPEND% min.51afa.com,%APPEND% ztvip1.cn,%APPEND% wx.ah.189.cn
 
 
 
