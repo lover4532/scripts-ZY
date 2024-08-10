@@ -1,0 +1,206 @@
+
+
+[Script]
+in嘉善 = type=cron,cronexp="31 9,19 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/JiaShan/JiaShan.js,script-update-interval=0,timeout=3600,wake-system=1
+
+读嘉 = type=cron,cronexp="31 10,17 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/DuJia/DuJia.js,script-update-interval=0,timeout=3600,wake-system=1
+
+尊享金陵_获取token = type=http-response,pattern=^https:\/\/app\.jinlinghotels\.com\/app\/wx\/v1\/getAuthUser,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/ZXJL/ZXJL.js,requires-body=1,max-size=0
+尊享金陵 = type=cron,cronexp="18 8,17 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/ZXJL/ZXJL.js,script-update-interval=0,timeout=3600,wake-system=1
+
+中兴手机商城 = type=cron,cronexp="33 1,19 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/ZTE/ZTE.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+中兴社区 = type=cron,cronexp="0 0-23/4 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/ZTE/ZTE_Community.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+掌上武义 = type=cron,cronexp="0 7,8,17 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/ZSWY/ZSWY.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+掌上金东 = type=cron,cronexp="10,30 9 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/ZSJD/ZSJD.js,script-update-interval=0,timeout=3600,wake-system=1
+
+今日越城 = type=cron,cronexp="0 9,19 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/YueCheng/YueCheng.js,script-update-interval=0,timeout=3600,wake-system=1
+
+有赞_获取token = type=http-request,pattern=^https?:\/\/h5\.youzan\.com\/wscump\/checkin\/get_activity_by_yzuid_v2.json,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/YouZan/YouZan.js
+有赞 = type=cron,cronexp="44 1,11 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/YouZan/YouZan.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+富连e充_获取token = type=http-response,pattern=^https:\/\/api\.nblinks\.cn\/coreApi\/user\/consumer\/v1\/(aliPayAppLogin|weChatAppLogin),script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/YongXin/YongXin.js,requires-body=1,max-size=0
+富连e充 = type=cron,cronexp="10 0,23 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/YongXin/YongXin.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+甬派 = type=cron,cronexp="8 8,14,22 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/YongPai/YongPai.js,script-update-interval=0,timeout=3600,wake-system=1
+
+伊利-摇一摇_获取token = type=http-response,pattern=^https:\/\/wx-camp-wzry\.mscampapi\.digitalyili\.com\/wx-camp-exercise\/stage\/qryUserInfo,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/YiLi/YiLi.js,requires-body=1,max-size=0
+伊利-摇一摇 = type=cron,cronexp="5 0,18 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/YiLi/YiLi.js,script-update-interval=0,timeout=3600,wake-system=1
+
+云筑工匠_获取cookie = type=http-response,pattern=^https:\/\/lwapp\.yzw\.cn\/api\/Home\/GetWorkerInfo,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/YZGJ/YZGJ.js,requires-body=1,max-size=0
+云筑工匠 = type=cron,cronexp="8 8,16 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/YZGJ/YZGJ.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+仰韶会员_获取token = type=http-response,pattern=^https:\/\/hy\.51pt\.top\/app\/ys\/mine\/getMemberInfo,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/YSHY/YSHY.js,requires-body=1,max-size=0
+仰韶会员 = type=cron,cronexp="20 10,22 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/YSHY/YSHY.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+新江北 = type=cron,cronexp="10 1,12 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/XinJiangBei/XinJiangBei.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+西施眼 = type=cron,cronexp="6 8,14,20 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/XiShiYan/XiShiYan.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+习酒_获取token = type=http-response,pattern=^https:\/\/xcx\.exijiu\.com\/anti-channeling\/public\/index.php\/api\/v2\/Member\/getJifenShopMemberInfo,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/XiJiu/XiJiu.js,requires-body=1,max-size=0
+习酒 = type=cron,cronexp="35 0-23/1 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/XiJiu/XiJiu.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+君品荟 = type=cron,cronexp="11 7,17 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/XiJiu/JunPinHui.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+望潮 = type=cron,cronexp="20 9,15,21 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/WangChao/WangChao.js,script-update-interval=0,timeout=3600,wake-system=1,engine=js
+
+网易严选_获取cookie = type=http-request,pattern=^https:\/\/act\.you\.163\.com\/act-attendance\/task\/list,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/WYYX/WYYX.js,requires-body=1,max-size=0
+网易严选 = type=cron,cronexp="45 0,11,21 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/WYYX/WYYX.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+网易严选-兑换时间 = type=cron,cronexp="50 9 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/WYYX/WYYX_MONITOR.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+统一_获取token = type=http-response,pattern=^https:\/\/xapi\.weimob\.com\/api3\/onecrm\/user\/center\/usercenter\/queryUserInfo,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/TongYi/TongYi.js,requires-body=1,max-size=0
+统一 = type=cron,cronexp="25 8,12,18,20 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/TongYi/TongYi.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+#茄皇_获取token = type=http-request,pattern=^https:\/\/qiehuang-apig\.xiaoyisz\.com\/qiehuangsecond\/ga\/public\/api\/login,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/TongYi/QieHuang.js,requires-body=1,max-size=0
+#茄皇 = type=cron,cronexp="5 10-22/2 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/TongYi/QieHuang.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+潇洒桐庐 = type=cron,cronexp="32 10,11,18 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/TongLu/TongLu.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+泰康在线_获取token = type=http-response,pattern=^https:\/\/m\.tk\.cn\/wechat_item\/rest\/xcx\/login,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/TKZX/TKZX.js,requires-body=1,max-size=0
+泰康在线 = type=cron,cronexp="8 8,22 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/TKZX/TKZX.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+三得利_获取token = type=http-response,pattern=^https:\/\/xiaodian\.miyatech\.com\/api\/user\/member\/info,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/SDL/SDL.js,requires-body=1,max-size=0
+三得利 = type=cron,cronexp="19 8,19 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/SDL/SDL.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+融磐安 = type=cron,cronexp="10 10,16 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/RongPanAn/RongPanAn.js,script-update-interval=0,timeout=3600,wake-system=1
+
+红牛会员俱乐部_获取token = type=http-response,pattern=^https:\/\/xiaodian\.miyatech\.com\/api\/user\/login\/wx-jc,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/RedBull/RedBull.js,requires-body=1,max-size=0
+红牛会员俱乐部 = type=cron,cronexp="44 8,18 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/RedBull/RedBull.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+日清食品体验馆_获取token = type=http-response,pattern=^https:\/\/prod-api\.nissinfoodium\.com\.cn\/gw-shop\/app\/v1\/user\/detail,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/RQSP/RQSP.js,requires-body=1,max-size=0
+日清食品体验馆 = type=cron,cronexp="25 5,15 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/RQSP/RQSP.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+青椒 = type=cron,cronexp="1 8,18 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/QingJiao/QingJiao.js,script-update-interval=0,timeout=3600,wake-system=1
+
+青岛新闻 = type=cron,cronexp="30 10,18 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/QingDaoNews/QingDaoNews.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+攀升科技+_获取token = type=http-response,pattern=^https:\/\/psjia\.ipason\.com\/api\/v2\/member\/memberinfo,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/PSKJ/PSKJ.js,requires-body=1,max-size=0
+攀升科技+ = type=cron,cronexp="33 2,20 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/PSKJ/PSKJ.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+蒙牛营养生活家_获取token = type=http-request,pattern=^https:\/\/mp-isv\.youzanyun\.com\/activity\/get_sign_in_by_open_id_and_mobile,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/MengNiu/MengNiuNutritionist.js,requires-body=1,max-size=0
+蒙牛营养生活家 = type=cron,cronexp="1 0,22 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/MengNiu/MengNiuNutritionist.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+蒙牛生活家会员中心_获取token = type=http-request,pattern=^https:\/\/mp-isv\.youzanyun\.com\/client\/member\/getMemberInfo,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/MengNiu/MengNiuVip.js,requires-body=1,max-size=0
+蒙牛生活家会员中心 = type=cron,cronexp="5 0,22 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/MengNiu/MengNiuVip.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+麦斯威尔福利社_获取token = type=http-response,pattern=^https:\/\/jde\.mtbcpt\.com\/api\/JDEMaxwellApi\/QueryHomeInfo,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/MSWEFLS/MSWEFLS.js,requires-body=1,max-size=0
+麦斯威尔福利社 = type=cron,cronexp="11 11,18 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/MSWEFLS/MSWEFLS.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+毛铺草本荟_获取token = type=http-response,pattern=^https:\/\/mpb\.jingjiu\.com\/proxy-he\/api\/user,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/MPCBH/MPCBH.js,requires-body=1,max-size=0
+毛铺草本荟 = type=cron,cronexp="27 7,17 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/MPCBH/MPCBH.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+兰精灵 = type=cron,cronexp="10 9,19 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/LanJingLing/LanJingLing.js,script-update-interval=0,timeout=3600,wake-system=1
+
+酷瓜好物_获取token = type=http-response,pattern=^https:\/\/www\.kugua\.com\/wxapp\/openidLogin,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/KuGua/KuGua.js,requires-body=1,max-size=0
+酷瓜好物 = type=cron,cronexp="50 0,10 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/KuGua/KuGua.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+金多多商城_获取cookie = type=http-response,pattern=^https:\/\/www\.jindd\.shop\/addons\/yun_shop\/api.php\?i=12&uuid=0&type=1&mid=(\d+)&version=v1.1.137&basic_info=1&route=member.member.wxJsSdkConfig,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/JinDD/JinDD.js,requires-body=1,max-size=0
+金多多商城 = type=cron,cronexp="33 0,14 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/JinDD/JinDD.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+江苏有线-巴黎奥运会_获取token = type=http-response,pattern=^https:\/\/www\.js96296\.com\/dzyyt\/ppc\/dzyyt\/wchat\/marketingActivity\/checkProIsLogin,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/JSYX/JSYX.js,requires-body=1,max-size=0
+江苏有线-巴黎奥运会 = type=cron,cronexp="37 9,20 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/JSYX/JSYX.js,script-update-interval=0,timeout=3600,wake-system=1
+
+健达福利社_获取token = type=http-response,pattern=^https:\/\/mole\.ferrero\.com\.cn\/boss\/boss\/scrm\/home\/info\/get,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/JDFLS/JDFLS.js,requires-body=1,max-size=0
+健达福利社 = type=cron,cronexp="10 10,20 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/JDFLS/JDFLS.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+IQOO社区_获取token = type=http-response,pattern=^https:\/\/bbs-api\.iqoo\.com\/api\/v3\/user\?userId=,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/IQOO/IQOO.js,requires-body=1,max-size=0
+IQOO社区 = type=cron,cronexp="25 2,20 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/IQOO/IQOO.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+海天美味馆_获取token = type=http-response,pattern=^https:\/\/cmallapi\.haday\.cn\/buyer-api\/wechat\/mini\/phoneNew\/login,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/HaiTian/HaiTian.js,requires-body=1,max-size=0
+海天美味馆 = type=cron,cronexp="43 2,20 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/HaiTian/HaiTian.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+富士instax玩拍由我俱乐部_获取token = type=http-response,pattern=^https:\/\/instax\.app\.xcxd\.net\.cn\/api\/me,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/INSTAX/INSTAX.js,requires-body=1,max-size=0
+富士instax玩拍由我俱乐部 = type=cron,cronexp="10 10,16,22 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/INSTAX/INSTAX.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+海天美味馆_获取token = type=http-response,pattern=^https:\/\/cmallapi\.haday\.cn\/buyer-api\/wechat\/mini\/phoneNew\/login,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/HaiTian/HaiTian.js,requires-body=1,max-size=0
+海天美味馆 = type=cron,cronexp="43 2,20 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/HaiTian/HaiTian.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+古井贡酒_获取token = type=http-response,pattern=^https:\/\/scrm\.gujing\.com\/gujing_scrm\/wxclient\/member\/info,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/GuJing/GuJing.js,requires-body=1,max-size=0
+古井贡酒 = type=cron,cronexp="5 8,12,18,20 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/GuJing/GuJing.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+Github监控 = type=cron,cronexp="0 8,20 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/Github/Github.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+广汽丰田_获取token = type=http-response,pattern=^https:\/\/gw\.nevapp\.gtmc\.com\.cn\/ha\/iam\/api\/sec\/oauth\/token,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/GQFT/GQFT.js,requires-body=1,max-size=0
+广汽丰田 = type=cron,cronexp="33 6,16,23 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/GQFT/GQFT.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+顾家家居_获取token = type=http-request,pattern=^https:\/\/mc\.kukahome\.com\/club-server\/member\/automaticLogin,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/GJJJ/GJJJ.js,requires-body=1,max-size=0
+顾家家居 = type=cron,cronexp="19 9,17 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/GJJJ/GJJJ.js,script-update-interval=0,timeout=3600,wake-system=1
+
+丰信客户端 = type=cron,cronexp="28 9,21 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/FengXin/FengXin.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+福田e家 = type=cron,cronexp="39 11,19 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/FTEJ/FTEJ.js,script-update-interval=0,timeout=3600,wake-system=1
+
+大潮 = type=cron,cronexp="30 30,35,40 9 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/DaChao/DaChao.js,script-update-interval=0,timeout=3600,wake-system=1
+
+读嘉 = type=cron,cronexp="31 10,17 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/DuJia/DuJia.js,script-update-interval=0,timeout=3600,wake-system=1
+
+东方棘市_获取token = type=http-response,pattern=^https:\/\/ys\.shajixueyuan\.com\/api\/user\/info,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/DFJS/DFJS.js,requires-body=1,max-size=0
+东方棘市 = type=cron,cronexp="43 11,21 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/DFJS/DFJS.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+七彩虹商城_获取token = type=http-request,pattern=^https:\/\/shopapi\.skycolorful\.com\/api\/User\/DecryptPhoneNumber,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/Colorful/Colorful.js,requires-body=1,max-size=0
+七彩虹商城 = type=cron,cronexp="7 8,20 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/Colorful/Colorful.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+好奇车生活_获取token = type=http-request,pattern=^https:\/\/channel\.cheryfs\.cn\/archer\/activity-api\/common\/accountPointLeft,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/Cheryfs/Cheryfs.js,requires-body=1,max-size=0
+好奇车生活 = type=cron,cronexp="54 7,15 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/Cheryfs/Cheryfs.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+辛喜_获取token = type=http-response,pattern=^https:\/\/api\.xinc818\.com\/mini\/user,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/XinXi/XinXi.js,requires-body=1,max-size=0
+辛喜 = type=cron,cronexp="55 0,20 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/XinXi/XinXi.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+微信阅读_获取cookie = type=http-request,pattern=^http:\/\/(\d+)\.tuilong\.com\/yunonline\/v1\/gold,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/WxRead/WxRead.js,requires-body=1,max-size=0
+微信阅读 = type=cron,cronexp="30 0-23/1 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/WxRead/WxRead.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+舞推_获取token = type=http-response,pattern=^https:\/\/mini-prog-wt-pro\.singworld\.net\/api\/person\/getUserInfoV1,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/WuTui/WuTui.js,requires-body=1,max-size=0
+舞推 = type=cron,cronexp="56 12,18 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/WuTui/WuTui.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+浓五的酒馆_获取token = type=http-response,pattern=^https:\/\/stdcrm\.dtmiller\.com\/scrm-promotion-service\/mini\/wly\/user\/info,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/WuLiangYe/WuLiangYe.js,requires-body=1,max-size=0
+浓五的酒馆 = type=cron,cronexp="25 3,19 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/WuLiangYe/WuLiangYe.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+同程旅行_获取token = type=http-response,pattern=^https:\/\/cvg\.17usoft\.com\/commonservice\/member\/getUserInfoByMid,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/TongCheng/TongCheng.js,requires-body=1,max-size=0
+同程旅行 = type=cron,cronexp="0 0,22 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/TongCheng/TongCheng.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+太平通_获取token = type=http-response,pattern=^https:\/\/ecustomer\.cntaiping\.com\/tpayms\/app\/tpay\/account\/getAcct,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/TaiPingTong/TaiPingTong.js,requires-body=1,max-size=0
+太平通 = type=cron,cronexp="35 0,8 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/TaiPingTong/TaiPingTong.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+什么值得买_获取cookie = type=http-response,pattern=^https:\/\/user-api\.smzdm\.com\/info\/core,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/SMZDM/SMZDM.js,requires-body=1,max-size=0
+什么值得买 = type=cron,cronexp="25 1,21 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/SMZDM/SMZDM.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+快集合_获取token = type=http-response,pattern=^https:\/\/exp2\.jintaocms\.com\/app\/Exp\/getUserInfo,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/KuaiJiHe/KuaiJiHe.js,requires-body=1,max-size=0
+快集合 = type=cron,cronexp="11 9,19 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/KuaiJiHe/KuaiJiHe.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+劲酒_获取经纬度 = type=http-request,pattern=^https:\/\/jjw\.jingjiu\.com\/app-jingyoujia\/app\/jingyoujia\/location\/getUserLocationPoint,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/JingJiu/JingJiu.js,requires-body=1,max-size=0
+劲酒_获取token = type=http-response,pattern=^https:\/\/jjw\.jingjiu\.com\/app-jingyoujia\/app\/jingyoujia\/customer\/detail,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/JingJiu/JingJiu.js,requires-body=1,max-size=0
+劲酒 = type=cron,cronexp="5 1,11,21 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/JingJiu/JingJiu.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+喜茶_获取token = type=http-response,pattern=^https:\/\/go\.heytea\.com\/api\/service-member\/vip\/member-exp\/account-info,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/HeyTea/HeyTea.js,requires-body=1,max-size=0
+喜茶 = type=cron,cronexp="10 0,8 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/HeyTea/HeyTea.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+哈根达斯_获取token = type=http-response,pattern=^https:\/\/hgds-crm\.myaiwecom\.com\/api\/wxapp\/member\/getMemberDetail,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/HGDS/HGDS.js,requires-body=1,max-size=0
+哈根达斯 = type=cron,cronexp="43 1,21 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/HGDS/HGDS.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+臭宝乐园_获取token = type=http-response,pattern=^https:\/\/cb-bags-slb\.weinian\.com\.cn\/wnuser\/v1\/memberUser\/getMemberUser,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/CBLY/CBLY.js,requires-body=1,max-size=0
+臭宝乐园 = type=cron,cronexp="9 9,21 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/CBLY/CBLY.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+白马严选相册_获取token = type=http-request,pattern=^https:\/\/min\.51afa\.com\/module\/integralApi\/member_center_info\.html\?,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/BMYX/BMYX.js,requires-body=1,max-size=0
+白马严选相册 = type=cron,cronexp="15 5,15 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/BMYX/BMYX.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+阿叔同城_获取token = type=http-response,pattern=^https:\/\/ztvip1\.cn\/api\/o2o.Integral\/Signindex,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/ASTC/ASTC.js,requires-body=1,max-size=0
+阿叔同城 = type=cron,cronexp="49 4,14 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/ASTC/ASTC.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+安徽电信_获取token = type=http-response,pattern=^https:\/\/wx\.ah\.189\.cn\/hd\/ahwxboot\/personCenter\/centerIndex\?,script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/AnHuiTelecom/AnHuiTelecom.js,requires-body=1,max-size=0
+安徽电信 = type=cron,cronexp="1 10,18 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/AnHuiTelecom/AnHuiTelecom.js,script-update-interval=0,timeout=3600,wake-system=1,engine=jsc
+
+爱路桥 = type=cron,cronexp="1,10 8,16 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/AiLuQiao/AiLuQiao.js,script-update-interval=0,timeout=3600,wake-system=1
+
+爱海盐 = type=cron,cronexp="1 10,16 * * *",script-path=https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/AiHaiYan/AiHaiYan.js,script-update-interval=0,timeout=3600,wake-system=1
+
+[MITM]
+hostname = %APPEND% app.jinlinghotels.com,%APPEND% h5.youzan.com,%APPEND% api.nblinks.cn,%APPEND% wx-camp-wzry.mscampapi.digitalyili.com,%APPEND% lwapp.yzw.cn,%APPEND% hy.51pt.top,%APPEND% xcx.exijiu.com,%APPEND% act.you.163.com,%APPEND% xapi.weimob.com,
+qiehuang-apig.xiaoyisz.com, plugin.szzbmy.com,%APPEND% m.tk.cn,%APPEND% xiaodian.miyatech.com,%APPEND% xiaodian.miyatech.com,%APPEND% prod-api.nissinfoodium.com.cn,%APPEND% psjia.ipason.com,%APPEND% mp-isv.youzanyun.com,%APPEND% jde.mtbcpt.com,%APPEND% mpb.jingjiu.com,
+%APPEND% www.kugua.com,%APPEND% www.js96296.com,%APPEND% mole.ferrero.com.cn,%APPEND% bbs-api.iqoo.com, %APPEND% cmallapi.haday.cn,%APPEND% instax.app.xcxd.net.cn,%APPEND% cmallapi.haday.cn,%APPEND% scrm.gujing.com,%APPEND% gw.nevapp.gtmc.com.cn,
+%APPEND% mc.kukahome.com,%APPEND% ys.shajixueyuan.com,%APPEND% shopapi.skycolorful.com,%APPEND% channel.cheryfs.cn,%APPEND% api.xinc818.com,%APPEND% *.tuilong.com,%APPEND% mini-prog-wt-pro.singworld.net,%APPEND% stdcrm.dtmiller.com,
+%APPEND% cvg.17usoft.com,%APPEND% ecustomer.cntaiping.com,%APPEND% user-api.smzdm.com,%APPEND% exp2.jintaocms.com,%APPEND% jjw.jingjiu.com,%APPEND% go.heytea.com,%APPEND% hgds-crm.myaiwecom.com,%APPEND% cb-bags-slb.weinian.com.cn,
+%APPEND% min.51afa.com,%APPEND% ztvip1.cn,%APPEND% wx.ah.189.cn
+
+
+
+
+
+
+
